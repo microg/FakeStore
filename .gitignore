@@ -1,4 +1,5 @@
+build/
+.gradle/
+user.gradle
+local.properties
 *.iml
-gen
-bin
-build

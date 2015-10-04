@@ -17,10 +17,12 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE_TAGS := optional
 
-LOCAL_SRC_FILES := $(call all-java-files-under, src)
+LOCAL_SRC_FILES := $(call all-java-files-under, fake-store/src/main/java)
+LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/fake-store/src/main/res
+LOCAL_MANIFEST_FILE := fake-store/src/AndroidManifest.xml
 LOCAL_PACKAGE_NAME := FakeStore
 LOCAL_SDK_VERSION := current
-LOCAL_PRIVILEGED_MODULE := true
+LOCAL_PRIVILEGED_MODULE := false
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
