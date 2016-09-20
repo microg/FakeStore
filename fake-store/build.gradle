@@ -40,7 +40,7 @@ int getMyVersionCode() {
         commandLine 'git', 'rev-list', '--count', "HEAD"
         standardOutput = stdout
     }
-    return Integer.parseInt(stdout.toString().trim())
+    return 80692101
 }
 
 android {
