@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2015 microG Project Team
+ * Copyright 2013-2016 microG Project Team
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,35 @@
  * limitations under the License.
  */
 
-apply plugin: 'com.android.application'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+    }
+}
 
-String getMyVersionName() {
+allprojects {
+    apply plugin: 'idea'
+    ext.androidBuildVersionTools = "24.0.3"
+    ext.isReleaseVersion = false
+}
+
+def androidCompileSdk() { return 24 }
+
+def androidTargetSdk() { return 24 }
+
+def androidMinSdk() { return 9 }
+
+def versionCode() {
+    def stdout = new ByteArrayOutputStream()
+    exec { commandLine 'git', 'rev-list', '--count', "HEAD"; standardOutput = stdout }
+    return Integer.parseInt(stdout.toString().trim())
+}
+
+def versionName() {
     def stdout = new ByteArrayOutputStream()
     if (rootProject.file("gradlew").exists())
         exec { commandLine 'git', 'describe', '--tags', '--always', '--dirty'; standardOutput = stdout }
@@ -25,31 +51,15 @@ String getMyVersionName() {
     return stdout.toString().trim().substring(1)
 }
 
-int getMyVersionCode() {
-    def stdout = new ByteArrayOutputStream()
-    exec {
-        commandLine 'git', 'rev-list', '--count', "HEAD"
-        standardOutput = stdout
-    }
-    return Integer.parseInt(stdout.toString().trim())
-}
-
-android {
-    compileSdkVersion androidCompileSdk()
-    buildToolsVersion "$androidBuildVersionTools"
-
-    defaultConfig {
-        versionName getMyVersionName()
-        versionCode getMyVersionCode()
-        minSdkVersion androidMinSdk()
-        targetSdkVersion androidTargetSdk()
+subprojects {
+    group = 'org.microg'
+    repositories {
+        jcenter()
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_6
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = JavaVersion.VERSION_1_7
+        targetCompatibility = JavaVersion.VERSION_1_7
     }
 }
 
-if (file('user.gradle').exists()) {
-    apply from: 'user.gradle'
-}
