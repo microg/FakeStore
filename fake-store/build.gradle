@@ -43,6 +43,9 @@ android {
         versionCode getMyVersionCode()
         minSdkVersion androidMinSdk()
         targetSdkVersion androidTargetSdk()
+        jackOptions {
+            enabled true
+        }
     }
 
     compileOptions {
