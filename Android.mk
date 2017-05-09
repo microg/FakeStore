@@ -21,14 +21,14 @@ LOCAL_PACKAGE_NAME := FakeStore
 
 fakestore_root  := $(LOCAL_PATH)
 fakestore_dir   := fake-store
-fakestore_out   := $(OUT_DIR)/target/common/obj/APPS/$(LOCAL_MODULE)_intermediates
+fakestore_out   := $(TARGET_COMMON_OUT_ROOT)/obj/APPS/$(LOCAL_MODULE)_intermediates
 fakestore_build := $(fakestore_root)/$(fakestore_dir)/build
 fakestore_apk   := build/outputs/apk/fake-store-release-unsigned.apk
 
 $(fakestore_root)/$(fakestore_dir)/$(fakestore_apk):
 	rm -Rf $(fakestore_build)
-	mkdir -p $(fakestore_out)
-	ln -s $(fakestore_out) $(fakestore_build)
+	mkdir -p $(ANDROID_BUILD_TOP)/$(fakestore_out)
+	ln -s $(ANDROID_BUILD_TOP)/$(fakestore_out) $(fakestore_build)
 	echo "sdk.dir=$(ANDROID_HOME)" > $(fakestore_root)/local.properties
 	cd $(fakestore_root) && git submodule update --recursive --init
 	cd $(fakestore_root)/$(fakestore_dir) && JAVA_TOOL_OPTIONS="$(JAVA_TOOL_OPTIONS) -Dfile.encoding=UTF8" ../gradlew assembleRelease
