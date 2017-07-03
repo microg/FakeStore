@@ -22,6 +22,7 @@
         android:minSdkVersion="10"
         android:targetSdkVersion="23"/>
 
+    <permission android:name="com.android.vending.CHECK_LICENSE" android:protectionLevel="normal"/>
     <uses-permission android:name="android.permission.FAKE_PACKAGE_SIGNATURE"/>
     <application
         android:icon="@drawable/icon"
