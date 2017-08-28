@@ -21,7 +21,7 @@ LOCAL_PACKAGE_NAME := FakeStore
 
 fakestore_root  := $(LOCAL_PATH)
 fakestore_dir   := fake-store
-fakestore_out   := $(OUT_DIR)/target/common/obj/APPS/$(LOCAL_MODULE)_intermediates
+fakestore_out   := $(realpath $(OUT_DIR))/target/common/obj/APPS/$(LOCAL_MODULE)_intermediates
 fakestore_build := $(fakestore_root)/$(fakestore_dir)/build
 fakestore_apk   := build/outputs/apk/fake-store-release-unsigned.apk
 
