@@ -23,7 +23,7 @@ fakestore_root  := $(LOCAL_PATH)
 fakestore_dir   := fake-store
 fakestore_out   := $(OUT_DIR)/target/common/obj/APPS/$(LOCAL_MODULE)_intermediates
 fakestore_build := $(fakestore_root)/$(fakestore_dir)/build
-fakestore_apk   := build/outputs/apk/fake-store-release-unsigned.apk
+fakestore_apk   := build/outputs/apk/release/fake-store-release-unsigned.apk
 
 $(fakestore_root)/$(fakestore_dir)/$(fakestore_apk):
 	rm -Rf $(fakestore_build)
