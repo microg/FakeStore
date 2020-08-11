@@ -18,10 +18,6 @@
 <manifest package="com.android.vending"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-sdk
-        android:minSdkVersion="10"
-        android:targetSdkVersion="23"/>
-
     <uses-permission android:name="android.permission.FAKE_PACKAGE_SIGNATURE"/>
     <application
         android:icon="@drawable/icon"
