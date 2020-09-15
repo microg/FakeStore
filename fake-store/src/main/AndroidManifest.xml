@@ -29,7 +29,7 @@
         <activity
             android:name=".GrantFakeSignaturePermissionActivity"
             android:exported="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            android:theme="@style/Theme.Dialog.NoActionBar"/>
 
         <service
             android:name="com.android.vending.billing.InAppBillingService" >
