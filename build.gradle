@@ -29,7 +29,7 @@ allprojects {
     ext.androidBuildVersionTools = "29.0.3"
 }
 
-def androidCompileSdk() { return 29 }
+def androidCompileSdk() { return 30 }
 
 def androidTargetSdk() { return 24 }
 

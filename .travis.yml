@@ -10,7 +10,8 @@ script:
 android:
   components:
   - tools
+  - tools
   - platform-tools
   - build-tools-29.0.3
-  - android-29
+  - android-30
   - extra-android-m2repository
