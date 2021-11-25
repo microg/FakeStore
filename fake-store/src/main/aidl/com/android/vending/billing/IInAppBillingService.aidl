@@ -53,7 +53,7 @@ interface IInAppBillingService {
      *        and "subs" for subscriptions)
      * @return RESULT_OK(0) on success and appropriate response code on failures.
      */
-    int isBillingSupported(int apiVersion, String packageName, String type);
+    int isBillingSupported(int apiVersion, String packageName, String type) = 0;
 
     /**
      * Provides details of a list of SKUs
@@ -78,7 +78,7 @@ interface IInAppBillingService {
      *                           "title : "Example Title",
      *                           "description" : "This is an example description" }'
      */
-    Bundle getSkuDetails(int apiVersion, String packageName, String type, in Bundle skusBundle);
+    Bundle getSkuDetails(int apiVersion, String packageName, String type, in Bundle skusBundle) = 1;
 
     /**
      * Returns a pending intent to launch the purchase flow for an in-app item by providing a SKU,
@@ -111,7 +111,7 @@ interface IInAppBillingService {
      *                                  TODO: change this to app-specific keys.
      */
     Bundle getBuyIntent(int apiVersion, String packageName, String sku, String type,
-        String developerPayload);
+        String developerPayload) = 2;
 
     /**
      * Returns the current SKUs owned by the user of the type and package name specified along with
@@ -137,7 +137,7 @@ interface IInAppBillingService {
      *                                      next set of in-app purchases. Only set if the
      *                                      user has more owned skus than the current list.
      */
-    Bundle getPurchases(int apiVersion, String packageName, String type, String continuationToken);
+    Bundle getPurchases(int apiVersion, String packageName, String type, String continuationToken) = 3;
 
     /**
      * Consume the last purchase of the given SKU. This will result in this item being removed
@@ -148,12 +148,7 @@ interface IInAppBillingService {
      *        to be consumed
      * @return RESULT_OK(0) if consumption succeeded, appropriate response codes on failures.
      */
-    int consumePurchase(int apiVersion, String packageName, String purchaseToken);
-
-    /**
-     * This API is currently under development.
-     */
-    int stub(int apiVersion, String packageName, String type);
+    int consumePurchase(int apiVersion, String packageName, String purchaseToken) = 4;
 
     /**
      * Returns a pending intent to launch the purchase flow for upgrading or downgrading a
@@ -188,5 +183,21 @@ interface IInAppBillingService {
      *                                  TODO: change this to app-specific keys.
      */
     Bundle getBuyIntentToReplaceSkus(int apiVersion, String packageName,
-        in List<String> oldSkus, String newSku, String type, String developerPayload);
+        in List<String> oldSkus, String newSku, String type, String developerPayload) = 6;
+
+    Bundle getBuyIntentV6(int apiVersion, String packageName, String sku, String type, String developerPayload, in Bundle extras) = 7;
+
+    Bundle getPurchasesV6(int apiVersion, String packageName, String type, String continuationToken, in Bundle extras) = 8;
+
+    int isBillingSupportedV7(int apiVersion, String packageName, String type, in Bundle extras) = 9;
+
+    Bundle getPurchasesV9(int apiVersion, String packageName, String type, String continuationToken, in Bundle extras) = 10;
+
+    Bundle consumePurchaseV9(int apiVersion, String packageName, String purchaseToken, in Bundle extras) = 11;
+
+    Bundle getPriceChangeConfirmationIntent(int apiVersion, String packageName, String sku, String type, in Bundle extras) = 800;
+
+    Bundle getSkuDetailsV10(int apiVersion, String packageName, String type, in Bundle skuBundle, in Bundle extras) = 900;
+
+    Bundle acknowledgePurchase(int apiVersion, String packageName, String purchaseToken, in Bundle extras) = 901;
 }

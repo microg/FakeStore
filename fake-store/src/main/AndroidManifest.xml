@@ -18,13 +18,10 @@
 <manifest package="com.android.vending"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-sdk
-        android:minSdkVersion="10"
-        android:targetSdkVersion="23"/>
-
     <permission android:name="com.android.vending.CHECK_LICENSE" android:protectionLevel="normal"/>
     <uses-permission android:name="android.permission.FAKE_PACKAGE_SIGNATURE"/>
     <application
+        android:forceQueryable="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name">
         <meta-data
@@ -34,7 +31,7 @@
         <activity
             android:name=".GrantFakeSignaturePermissionActivity"
             android:exported="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+            android:theme="@style/Theme.Dialog.NoActionBar"/>
 
         <service
             android:name="com.android.vending.billing.InAppBillingService" >
