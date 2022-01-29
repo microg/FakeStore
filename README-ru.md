@@ -1,13 +1,13 @@
-FakeStore
+FakeStore (Пустой маркет)
 =========
 
 [English](https://github.com/microG/FakeStore/tree/master/README.md) | [Русский](https://github.com/microG/FakeStore/tree/master/README-ru.md)
 
-An empty package that mocks the existence of the Google Play Store to the Play Services client.
-Requires the FAKE_PACKAGE_SIGNATURE patch to be functional.
+Пустой пакет, представляющий себя в роли Google Play Маркета для приложений, использующих Сервисы Google Play.
+Необходима работа патча FAKE_PACKAGE_SIGNATURE.
 
-License
--------
+Лицензия
+--------
     Copyright 2013-2016 microG Project Team
 
     Licensed under the Apache License, Version 2.0 (the "License");
