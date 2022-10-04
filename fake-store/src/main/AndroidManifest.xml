@@ -39,5 +39,12 @@
                 <action android:name="com.android.vending.billing.InAppBillingService.BIND" />
             </intent-filter>
         </service>
+
+        <service
+            android:name="com.android.vending.SplitInstallService" >
+            <intent-filter>
+                <action android:name="com.google.android.play.core.splitinstall.BIND_SPLIT_INSTALL_SERVICE" />
+            </intent-filter>
+        </service>
     </application>
 </manifest>
