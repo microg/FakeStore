@@ -16,24 +16,19 @@
 
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.3'
+        classpath 'com.android.tools.build:gradle:8.0.0'
     }
 }
 
-allprojects {
-    apply plugin: 'idea'
-    ext.androidBuildVersionTools = "29.0.3"
-}
+static def androidCompileSdk() { return 33 }
 
-def androidCompileSdk() { return 30 }
+static def androidTargetSdk() { return 24 }
 
-def androidTargetSdk() { return 24 }
-
-def androidMinSdk() { return 9 }
+static def androidMinSdk() { return 9 }
 
 def versionCode() {
     def stdout = new ByteArrayOutputStream()
@@ -53,7 +48,7 @@ def versionName() {
 subprojects {
     group = 'org.microg'
     repositories {
-        jcenter()
+        mavenCentral()
         google()
     }
 }
