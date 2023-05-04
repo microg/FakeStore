@@ -1,0 +1,5 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: fake-store/src/main/res/mipmap-*/*.png
+Copyright: 2023 microG Project Team
+License: CC-BY-SA-4.0
