@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2016 microG Project Team
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 package com.android.vending.billing;
 
 import android.app.Service;
@@ -11,9 +16,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by andrew.zhao on 9/19/16.
- */
 public class InAppBillingService extends Service {
     private static final String TAG = "FakeInAppStore";
 

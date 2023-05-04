@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2014 microg Project Team
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
 FakeStore
 =========
 An empty package that mocks the existence of the Google Play Store to the Play Services client.
