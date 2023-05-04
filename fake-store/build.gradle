@@ -35,14 +35,19 @@ int getMyVersionCode() {
 }
 
 android {
-    compileSdkVersion androidCompileSdk()
+    namespace "com.android.vending"
+    compileSdkVersion androidCompileSdk
     buildToolsVersion "$androidBuildVersionTools"
 
     defaultConfig {
-        versionName getMyVersionName()
-        versionCode getMyVersionCode()
-        minSdkVersion androidMinSdk()
-        targetSdkVersion androidTargetSdk()
+        versionName version
+        versionCode appVersionCode
+        minSdkVersion androidMinSdk
+        targetSdkVersion androidTargetSdk
+    }
+
+    buildFeatures {
+        aidl = true
     }
 
     compileOptions {
