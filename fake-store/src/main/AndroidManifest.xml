@@ -27,6 +27,14 @@
             </intent-filter>
         </service>
 
+        <service android:name="com.google.android.play.core.integrityservice.IntegrityService"
+                 android:visibleToInstantApps="true"
+                 android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.play.core.integrityservice.BIND_INTEGRITY_SERVICE"/>
+            </intent-filter>
+        </service>
+
         <service android:name="com.android.vending.licensing.LicensingService"
                  android:exported="true">
             <intent-filter>
