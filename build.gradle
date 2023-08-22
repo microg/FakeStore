@@ -16,7 +16,7 @@ buildscript {
 def versionCode() {
     def stdout = new ByteArrayOutputStream()
     exec { commandLine 'git', 'rev-list', '--count', "HEAD"; standardOutput = stdout }
-    return Integer.parseInt(stdout.toString().trim())
+    return Integer.parseInt(stdout.toString().trim()) + 83700000
 }
 
 def versionName() {
