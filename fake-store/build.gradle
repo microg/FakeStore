@@ -27,6 +27,10 @@ android {
     }
 }
 
+dependencies {
+    implementation project(':fake-signature')
+}
+
 if (file('user.gradle').exists()) {
     apply from: 'user.gradle'
 }

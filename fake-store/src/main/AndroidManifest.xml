@@ -8,16 +8,12 @@
     <permission
         android:name="com.android.vending.CHECK_LICENSE"
         android:protectionLevel="normal" />
-    <uses-permission android:name="android.permission.FAKE_PACKAGE_SIGNATURE" />
+
     <application
         android:forceQueryable="true"
         android:icon="@mipmap/ic_app"
         android:roundIcon="@mipmap/ic_app_round"
         android:label="@string/app_name">
-
-        <meta-data
-            android:name="fake-signature"
-            android:value="@string/fake_signature" />
 
         <activity
             android:name=".GrantFakeSignaturePermissionActivity"
