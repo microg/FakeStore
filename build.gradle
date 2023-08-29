@@ -9,7 +9,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.1'
+        classpath 'com.android.tools.build:gradle:8.0.2'
     }
 }
 
@@ -32,10 +32,10 @@ allprojects {
     apply plugin: 'idea'
     version = versionName()
 
-    ext.androidBuildVersionTools = "30.0.3"
+    ext.androidBuildVersionTools = "33.0.2"
 
     ext.appVersionCode = versionCode()
-    ext.androidCompileSdk = 30
+    ext.androidCompileSdk = 33
     ext.androidTargetSdk = 29
     ext.androidMinSdk = 9
 }
