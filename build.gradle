@@ -28,6 +28,39 @@ def versionName() {
     return stdout.toString().trim().substring(1)
 }
 
+private void configureSigning(def android, File keystorePropsFile)
+{
+    if (!keystorePropsFile.exists()) return
+    if (android == null) throw new GradleException('android is null inside configureSigning()')
+
+    println 'Signed build'
+
+    Properties keystoreProps = new Properties()
+    keystoreProps.load(new FileInputStream(keystorePropsFile))
+
+    String keyStorePassword
+    boolean fallbackToEnv = keystoreProps.containsKey('fallbackToEnv') && keystoreProps['fallbackToEnv'] == 'true'
+
+    if (keystoreProps.containsKey('keyStorePassword'))
+        keyStorePassword = keystoreProps['keyStorePassword']
+    else if (fallbackToEnv)
+        keyStorePassword = System.getenv('KEYSTORE_PASSWORD')
+
+    if (keyStorePassword == null || keyStorePassword.isEmpty())
+        throw new InvalidUserDataException('Keystore password is empty')
+
+    android.signingConfigs {
+        config {
+            storeFile = rootProject.file(keystoreProps['storeFile'])
+            storePassword = keyStorePassword
+            keyAlias = keystoreProps['keyAlias']
+            keyPassword = keyStorePassword
+        }
+    }
+
+    android.buildTypes.release.signingConfig android.signingConfigs.config
+}
+
 allprojects {
     apply plugin: 'idea'
     version = versionName()
@@ -47,4 +80,3 @@ subprojects {
         google()
     }
 }
-

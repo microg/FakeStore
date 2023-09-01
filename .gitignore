@@ -7,3 +7,5 @@ build/
 user.gradle
 local.properties
 *.iml
+keystore.properties
+keystore.jks

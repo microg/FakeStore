@@ -27,6 +27,8 @@ android {
     }
 }
 
+configureSigning(android, rootProject.file('keystore.properties'))
+
 if (file('user.gradle').exists()) {
     apply from: 'user.gradle'
 }
