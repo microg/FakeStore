@@ -1,29 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ SPDX-FileCopyrightText: 2014 microG Project Team
   ~ SPDX-License-Identifier: Apache-2.0
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <permission android:name="com.android.vending.CHECK_LICENSE" android:protectionLevel="normal"/>
-    <uses-permission android:name="android.permission.FAKE_PACKAGE_SIGNATURE"/>
+    <permission
+        android:name="com.android.vending.CHECK_LICENSE"
+        android:protectionLevel="normal" />
+    <uses-permission android:name="android.permission.FAKE_PACKAGE_SIGNATURE" />
     <application
-            android:forceQueryable="true"
-            android:icon="@mipmap/ic_app"
-            android:label="@string/app_name">
+        android:forceQueryable="true"
+        android:icon="@mipmap/ic_app"
+        android:roundIcon="@mipmap/ic_app_round"
+        android:label="@string/app_name">
 
-        <meta-data android:name="fake-signature"
-                   android:value="@string/fake_signature"/>
+        <meta-data
+            android:name="fake-signature"
+            android:value="@string/fake_signature" />
 
-        <activity android:name=".GrantFakeSignaturePermissionActivity"
-                  android:exported="true"
-                  android:theme="@style/Theme.Dialog.NoActionBar"/>
+        <activity
+            android:name=".GrantFakeSignaturePermissionActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Dialog.NoActionBar" />
 
-        <service android:name="com.android.vending.billing.InAppBillingService"
-                 android:exported="true">
+        <service
+            android:name="com.android.vending.billing.InAppBillingService"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.android.vending.billing.InAppBillingService.BIND"/>
+                <action android:name="com.android.vending.billing.InAppBillingService.BIND" />
             </intent-filter>
         </service>
 
@@ -35,10 +40,11 @@
             </intent-filter>
         </service>
 
-        <service android:name="com.android.vending.licensing.LicensingService"
-                 android:exported="true">
+        <service
+            android:name="com.android.vending.licensing.LicensingService"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.android.vending.licensing.ILicensingService"/>
+                <action android:name="com.android.vending.licensing.ILicensingService" />
             </intent-filter>
         </service>
     </application>

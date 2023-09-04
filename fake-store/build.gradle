@@ -5,24 +5,6 @@
 
 apply plugin: 'com.android.application'
 
-String getMyVersionName() {
-    def stdout = new ByteArrayOutputStream()
-    if (rootProject.file("gradlew").exists())
-        exec { commandLine 'git', 'describe', '--tags', '--always', '--dirty'; standardOutput = stdout }
-    else // automatic build system, don't tag dirty
-        exec { commandLine 'git', 'describe', '--tags', '--always'; standardOutput = stdout }
-    return stdout.toString().trim().substring(1)
-}
-
-int getMyVersionCode() {
-    def stdout = new ByteArrayOutputStream()
-    exec {
-        commandLine 'git', 'rev-list', '--count', "HEAD"
-        standardOutput = stdout
-    }
-    return Integer.parseInt(stdout.toString().trim())
-}
-
 android {
     namespace "com.android.vending"
     compileSdkVersion androidCompileSdk
